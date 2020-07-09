@@ -100,11 +100,16 @@
 
 
             if (y + dy < ballRadius) {
+                // bounce back
                 dy = -dy;
                 ballColor = generateRandomColor();
+
             } else if (y + dy > canvas.height-ballRadius) {
-                if (x > paddleX && x < paddleX + paddleWidth) {
+                //flip it back
+                if ((x + (ballRadius/2)) > paddleX && (x - (ballRadius/2)) < paddleX + paddleWidth) {
                     dy = -dy;
+
+                // you loose
                 } else { 
                     lives--;
                     if (!lives) {   
